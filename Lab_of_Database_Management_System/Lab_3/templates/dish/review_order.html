@@ -1,0 +1,24 @@
+{% extends 'dish/dish_base.html' %}
+
+{% block preproduct %}
+<div class="container headerdiv">
+    <h3 class="headertext" align="center">订单评价</h3>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="comment_detail">评价详情:</label>
+            <textarea id="comment_detail" name="comment_detail" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="comment_score">评价分数:（1～5分，评分越高表示您对该订单菜品越满意）</label>
+            <input type="number" id="comment_score" name="comment_score" class="form-control" min="1" max="5">
+        </div>
+        <button type="submit" class="btn btn-primary">提交评价</button>
+    </form>
+</div>
+{% endblock %}
